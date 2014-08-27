@@ -1,5 +1,21 @@
+body {
+	background: grey;
+}
+
+#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	text-align:left;
+	background: white;
+}
+
+h1, h2 {
+	padding-left: 10px;
+}
+
 p {
 	font: arial 12 px black;
+	padding-left: 20px;
 }
 
 ul.nav 
@@ -8,7 +24,6 @@ ul.nav
 }
 
 figcaption {
-	background: black;
 	padding: 5px;
 	margin: 5px;
 }
