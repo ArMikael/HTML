@@ -1,0 +1,14 @@
+p {
+	font: arial 12 px black;
+}
+
+ul.nav 
+{
+    list-style-type: none;
+}
+
+figcaption {
+	background: black;
+	padding: 5px;
+	margin: 5px;
+}
