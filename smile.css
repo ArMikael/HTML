@@ -23,7 +23,8 @@ tr:nth-child(4) td:nth-child(3), tr:nth-child(4) td:nth-child(8) {
 }
 */
 
-tr:nth-child(5) td:empty, tr:nth-child(6) td:empty {
+tr:nth-child(5) td:empty, 
+tr:nth-child(6) td:empty {
 	background-color: deeppink;
 }
 
@@ -31,11 +32,13 @@ td[data-foo="smilebar"] {
 	background-color: red;
 }
 
-td[data-foo~="baz"], td[data-foo="barbaz"] {
+td[data-foo~="baz"], 
+td[data-foo="barbaz"] {
 	background-color: deeppink;
 }
 
-tr:nth-of-type(8) td:nth-of-type(3), tr:nth-of-type(8) td:nth-of-type(8) {
+tr:nth-of-type(8) td:nth-of-type(3), 
+tr:nth-of-type(8) td:nth-of-type(8) {
  	background-color: red;
 }
 
