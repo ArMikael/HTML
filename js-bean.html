@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+	html {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
+
+	body {
+		background: #eee;
+		margin: 0 40px;
+		font: 100% sans-serif;
+	}
+
+	.mainHeader {
+		text-align: center;
+	}
+
+	.mainHeader,
+	.pane header  {
+		font-family: Georgia, serif;
+	}
+
+	.main {
+		background: #ddd;
+		box-shadow: 0 0 10px #999;
+		overflow: auto;
+	}
+
+	.pane {
+		float: left;
+		overflow: auto;
+		padding: 20px 20px;
+		width: 50%;
+	}
+
+	.pane:first-child {
+		padding-right: 0;
+	}
+
+	.pane header {
+		line-height: 25px;
+		padding-left: 5px;
+	}
+
+	textarea,
+	iframe {
+		border: 1px solid #aaa;
+		box-shadow: inset 1px 1px 5px #ddd;
+	}
+
+	textarea {
+		display: block;
+		font-size: 1.3em;
+		font-family: monospace;
+		height: 200px;
+		padding: 5px;
+		resize: none;
+		width: 100%;
+	}
+
+	iframe {
+		background: white;
+		height: 200px;
+		width: 100%;
+	}
+	</style>
+</head>
+
+<body>
+	<h1 class="mainHeader">JS Bean</h1>
+
+	<div class="main">
+	<section class="pane">
+	  <header>HTML</header>
+	  <textarea name="html" id="html" cols="30" rows="10">
+	  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam,
+	  feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+	  Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+	  </textarea>
+
+	  <header>CSS</header>
+	  <textarea name="css" id="css" cols="30" rows="10">
+	p {
+	font-size: 2.5em;
+	background: lightblue;
+	}
+	  </textarea>
+	</section>
+
+	<section class="pane">
+	  <header>Live Result</header>
+	  <iframe id="bean" src="" frameborder="0">
+
+	  </iframe>
+	</section>
+	</div>
+
+  	<script>
+  		/*
+
+  		JS Bean - Live Editor Ex.
+
+  		Requirements
+  		1. Do not change the HTMl/CSS
+  		2. Inject the given HTML into the iFrame as markup
+  		3. Inject the given CSS into the iFrame as styles
+  		4. Make it Live! Changing the HTML/CSS should reflect the result
+
+  		Extra:
+  		1. Adjust the iFrame height based on it's contents height
+  		Minimum height should default to 200px
+
+  		Hints:
+  		1. Inject the styles into a <style> tag in the iframe <head>
+  		2. To catch textarea changes, use `input` event
+
+  		*/
+
+  		//--------------------------------
+  		// Your code here
+  		//--------------------------------
+  		window.onload = function () {
+			var iframe = window.frames['bean'],
+			iframeDoc = iframe.contentDocument,
+			iframeBody = iframeDoc.body,
+			defaultText = document.querySelector('#html').value,
+			iframeStyle;
+
+			iframeBody.innerHTML = defaultText;
+
+			iframeDoc.head.innerHTML = '<style></style>';
+			iframeStyle = iframeDoc.querySelector('style');
+			iframeStyle.textContent = document.querySelector('#css').value;
+
+
+			(function () {
+				var textFields = document.querySelectorAll('textarea'),
+				inputCatcher;
+
+				// console.log(textFields);
+
+				inputCatcher = function (e) {
+					var target = e.target;
+					// console.log(target);
+					if ( target.id == 'html' ) {
+						console.log("HTML!");
+						iframeBody.innerHTML = target.value;
+					} else if ( target.id == 'css') {
+						console.log("CSS");
+						iframeStyle.textContent = target.value;
+					};
+
+				};
+
+				for ( var i = 0; i < textFields.length; i++ ) {
+					textFields[i].addEventListener('input', inputCatcher);
+				}
+
+			})();
+  		};
+
+  	</script>
+</body>
+</html>
+
+

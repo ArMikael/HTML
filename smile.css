@@ -17,6 +17,7 @@ tr:nth-of-type(4) td:not([data-not-eye]) {
  	background-color: blue;
 }
 
+
 /* Alternative way to draw eyes
 tr:nth-child(4) td:nth-child(3), tr:nth-child(4) td:nth-child(8) {
 	background-color: red;
@@ -32,8 +33,13 @@ td[data-foo="smilebar"] {
 	background-color: red;
 }
 
+/* Alternative way to get eyes
 td[data-foo~="baz"], 
 td[data-foo="barbaz"] {
+	background-color: deeppink;
+}*/
+
+td[data-foo$="baz"] {
 	background-color: deeppink;
 }
 
