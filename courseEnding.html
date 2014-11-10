@@ -8,9 +8,9 @@
 	<script>
 		(function () {
 		  var courseEnd = new Date(2015, 2, 4),
-		  date = new Date(),
-		  currentDate = date.getTime(),
-		  days;
+		  currentDate = new Date(),
+		  days,
+		  daysInMilliSec;
 
 		  days = courseEnd - currentDate;
 		  daysInMilliSec = (1000 * 60 * 60 * 24);
