@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		(function () {
+		  var courseEnd = new Date(2015, 2, 4),
+		  date = new Date(),
+		  currentDate = date.getTime(),
+		  days;
+
+		  days = courseEnd - currentDate;
+
+		  console.log(days / 86400000);
+
+		}());
+	</script>
+</body>
+</html>
