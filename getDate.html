@@ -34,11 +34,8 @@
 	  year = handle02(year);
 
 	  getFormattedDate = function (delimiter) {
-	  	if ( delimiter === undefined ) {
-	  		return date + "/" + month + "/" + year;
-	  	} else {
-	  		return date + delimiter + month + delimiter + year;
-	  	}
+	  	delimiter = delimiter || '/';
+	  	return date + delimiter + month + delimiter + year;
 	  }
 
 	  // Tests
