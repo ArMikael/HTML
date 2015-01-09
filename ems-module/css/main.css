@@ -1,0 +1,112 @@
+html {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	background: #2F2F2F;
+	color: #eee;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 40px;
+	z-index: 1;
+}
+
+.btn {
+	background: #5cb85c;
+	border-radius: 5px;
+	border: 1px solid #4cae4c;
+	box-shadow: 0 0 8px #999;
+	color: #eee;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height: 40px;
+	margin-bottom: 20px;
+	padding: 0 20px;
+	text-align: center;
+	text-shadow: 0 0 2px #333;
+}
+
+.btn:hover {
+	background-color: #47a447;
+	border-color: #398439;
+	box-shadow: 0 0 10px #999;
+	color: #eee;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+.transition {
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.hidden {
+	display: none;
+}
+
+/* =================================================
+   Temp CSS
+   ================================================= */
+
+main {
+	width: 660px;
+	margin: 0 auto;
+}
+
+section {
+	box-shadow: 0 0 10px #222;
+	color: #222;
+	border-radius: 10px;
+	background: #f3f3f3;
+	overflow: auto;
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+
+form {
+	position: relative;
+}
+
+form input[type="text"],
+select {
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid #999;
+	width: 200px;
+	padding: 8px;
+	height: 34px;
+	margin-bottom: 10px;
+	font-size: 0.9em;
+}
+
+.employeeCard {
+	position: relative;
+	border-top: 1px solid #ddd;
+	padding-top: 20px;
+}
+
+.actions {
+	position: absolute;
+	top: 20px;
+	right: 0;
+}
+
+.employeeCard ul {
+	margin: 0 0 20px;
+	padding: 0;
+}
+
+.employeeCard li {
+	list-style: none;
+}

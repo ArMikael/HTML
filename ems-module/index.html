@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Employee Management System</title>
+
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<main>
+		<section>
+			<h1>Employee Management System</h1>
+
+			<form id="newEmployeeForm">
+				<input id="employeeName" name="name" type="text"
+					placeholder="Employee Name..." required>
+				<input id="employeeSkill" name="skill" type="text"
+					placeholder="Employee Skill..." required>
+
+				<select id="employeeTitle" name="title" id="jobTitles">
+					<option value="Developer">Developer</option>
+					<option value="Designer">Designer</option>
+					<option value="Teacher">Teacher</option>
+				</select>
+				<br><br>
+				<input type="submit" class="btn" value="Add Employee">
+			</form>
+		</section>
+
+		<!-- <section class="hidden"> -->
+		<section>
+			<h3>Employees List:</h3>
+			<div id="employeesList">
+				<!-- Dynamic -->
+			</div>
+		</section>
+
+		<script type="text/template" id="tmpl-employees">
+			{{#each employees}}
+				<div class="employeeCard">
+					<ul>
+						<li><b>ID:</b> <span>{{ math @index "+" 1 }}</span></li>
+						<li><b>Name:</b> <span>{{ name }}</span></li>
+						<li><b>Skill:</b> <span>{{ skill }}</span></li>
+						<li><b>Title:</b> <span>{{ title }}</span></li>
+						<li><b>Last Check-In:</b>
+							<span>
+								{{#if lastCheckIn}}{{ lastCheckIn }}
+								{{else}}---{{/if}}
+							</span>
+						</li>
+					</ul>
+					<div class="actions">
+						{{#is fireEveryone }}
+							<div class="btn" data-action="fireEveryone"
+								data-inx="{{ @index }}">Fire Everyone</div>
+						{{/is}}
+						{{#is sayYo }}
+							<div class="btn" data-action="sayYo"
+								data-inx="{{ @index }}">Say Yo</div>
+						{{/is}}
+						<div class="btn" data-action="checkIn"
+							data-inx="{{ @index }}">Check-In</div>
+					</div>
+				</div>
+			{{/each}}
+		</script>
+	</main>
+
+	<script data-main="js/main" src="lib/js/require.min.js"></script>
+
+
+<!-- 	<script src="lib/js/jquery.min.js"></script>
+	<script src="lib/js/handlebars.min.js"></script>
+	<script src="lib/js/handlebars-helpers.js"></script>
+	<script src="js/ems.js"></script>
+	<script src="js/main.js"></script> -->
+</body>
+</html>

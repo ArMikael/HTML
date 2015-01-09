@@ -1,0 +1,53 @@
+table {
+	border-spacing: 0px;
+}
+
+td {
+	background-color: black;
+	width: 40px;
+	height: 40px;
+}
+
+.brow, .brow + td, .brow + td + td {
+	background-color: grey;
+}
+
+
+tr:nth-of-type(4) td:not([data-not-eye]) {
+ 	background-color: blue;
+}
+
+
+/* Alternative way to draw eyes
+tr:nth-child(4) td:nth-child(3), tr:nth-child(4) td:nth-child(8) {
+	background-color: red;
+}
+*/
+
+tr:nth-child(5) td:empty, 
+tr:nth-child(6) td:empty {
+	background-color: deeppink;
+}
+
+td[data-foo="smilebar"] {
+	background-color: red;
+}
+
+/* Alternative way to get eyes
+td[data-foo~="baz"], 
+td[data-foo="barbaz"] {
+	background-color: deeppink;
+}*/
+
+td[data-foo$="baz"] {
+	background-color: deeppink;
+}
+
+tr:nth-of-type(8) td:nth-of-type(3), 
+tr:nth-of-type(8) td:nth-of-type(8) {
+ 	background-color: red;
+}
+
+tr:nth-of-type(9) td:not(:empty) {
+	background-color: red;
+}
