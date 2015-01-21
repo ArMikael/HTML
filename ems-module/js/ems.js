@@ -1,8 +1,10 @@
 /**
- * Module Pattern
+ * AMD Pattern
  */
 
-window.EMS = (function () {
+define('ems', ['jquery', 'Handlebars', 'handlebarsHelpers'], function(jquery, Handlebars){
+
+// window.EMS = (function () {
 	var data = {
 			employees: []
 		};
@@ -96,4 +98,5 @@ window.EMS = (function () {
 		renderView: renderView,
 		runAction: runAction
 	};
-}());
+// }());
+});

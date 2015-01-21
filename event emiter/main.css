@@ -1,0 +1,112 @@
+.hide {
+  display: none;
+}
+
+.screen {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  background: skyblue;
+}
+
+.timer {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  height: 150px;
+  width: 200px;
+  background: silver;
+  border-radius: 50px;
+  border: 1px solid gray;
+  line-height: 150px;
+  overflow: hidden;
+}
+
+.timer .inner {
+  margin: 50px auto;
+  width: 150px;
+  height: 50px;
+  background: #e3e3e3;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: gray;
+  border-radius: 15px;
+}
+
+.arrows {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  background: #e3e3e3;
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 50px;
+  list-style: none;
+}
+
+.arrow:last-child {
+  margin-bottom: 0;
+}
+
+.arrow.up:after,
+.arrow.down:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+
+.arrow.up:after {
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid black;
+}
+
+.arrow.down:after {
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid black;
+}
+
+.ball {
+  position: absolute;
+  top: 20px;
+  left: 90px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: orange;
+}
+
+.grass {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: green;
+  height: 20px;
+  width: 300px;
+}
+
+.awesome {
+  position:absolute;
+  top: 20%;
+  left: 35%;
+  font-size: 100px;
+  opacity: 0;
+  -webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -o-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;
+}
+
+.awesome.active {
+  opacity: 1;
+}

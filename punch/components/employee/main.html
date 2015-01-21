@@ -1,0 +1,97 @@
+<div class="main" ng-controller="MainCtrl">
+  <div>Current time: {{now | date:'MMMM dd, yyyy'}}</div>
+  <label for="search-box">
+    Search for Employee
+  </label>
+  <input id="search-box" class="form-control" ng-model="searchText.fname" />
+  <!--  <input id="search-box" class="form-control" ng-model="searchText" /> -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <a href="" ng-click="sort('id')">
+            ID <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : isSortUp('id'),
+               'glyphicon-chevron-down' : isSortDown('id')}"></i>
+          </a>
+        </th>
+        <th><a href="" ng-click="sort('fname')">First Name
+            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : isSortUp('fname'),
+               'glyphicon-chevron-down' : isSortDown('fname')}"></i>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sort('lname')">Last Name
+            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : isSortUp('lname'),
+               'glyphicon-chevron-down' : isSortDown('lname')}"></i>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sort('title')">Job Title
+            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : isSortUp('title'),
+               'glyphicon-chevron-down' : isSortDown('title')}"></i>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sort('hours')">Hours Worked this month
+            <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : isSortUp('hours'),
+               'glyphicon-chevron-down' : isSortDown('hours')}"></i>
+          </a>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="employee in model.employees | orderBy : sortField : reverse
+      | filter : searchText | limitTo: 3" >
+      <!-- ng-repeat="employee in model.employees | searchBy : searchText : 'fname'" -->
+        <!-- filter : searchText -->
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.fname }}</td>
+        <td>{{ employee.lname }}</td>
+        <td>{{ getTitle(employee.title) }}</td>
+        <td>{{ employee.hours | uppercase | currency : '#' }}</td>
+        <td>
+          <button class="btn btn-primary glyphicon glyphicon-edit"
+          ng-click="toggleEdit()">
+          </button>
+        </td>
+        <td><button class="btn btn-danger glyphicon glyphicon-trash"
+        ng-click="deleteEmployee($index)"></button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <input placeholder="ID" type="text" class="form-control"
+          ng-model="newEmployee.id" />
+        </td>
+        <td>
+          <input placeholder="First Name" type="text" class="form-control"
+          ng-model="newEmployee.fname" />
+        </td>
+        <td>
+          <input placeholder="Last Name" type="text" class="form-control"
+          ng-model="newEmployee.lname" />
+        </td>
+        <td>
+          <select class="form-control" ng-model="newEmployee.title"
+            ng-options="id as title for (id, title) in model.jobs">
+            <option value="">Select a Job</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-success glyphicon glyphicon-plus"
+          ng-click="addEmployee(newEmployee)">
+            Add
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div><pre>{{model.employees | json: 4}}</pre></div>
+
+  <div><pre>{{data | json: 3 }}</pre></div>
+
+</div>

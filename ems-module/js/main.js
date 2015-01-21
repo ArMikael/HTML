@@ -1,6 +1,23 @@
-$(function (EMS) {
+/**
+ * AMD Pattern
+ */
 
-	// var EMS
+require.config({
+	baseUrl: './js',
+	paths: {
+		ems: 'ems',
+		Handlebars: '../lib/js/handlebars.min',
+		handlebarsHelpers: '../lib/js/handlebars-helpers',
+		handlebarsMath: '../lib/js/handlebars-math',
+		jquery: '../lib/js/jquery.min'
+	}
+});
+
+require(['ems', 'jquery', 'Handlebars'], function(EMS, $, Handlebars) {
+
+	console.log($);
+	console.log(EMS);
+	console.log(Handlebars);
 
 	/**
 	 * Update the HTML based on the employees data
@@ -85,4 +102,4 @@ $(function (EMS) {
 
 		renderView();
 	}());
-}(EMS));
+});

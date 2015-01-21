@@ -1,0 +1,141 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<title>DEMO</title>
+		<style>
+			* {box-sizing: border-box;}
+			.wrapp {
+				width: 68%;
+				margin: 2em auto;
+				
+			}
+			.tabs {
+				width: 100%;
+				background: #666; 
+				white-space: nowrap;
+			}
+			.tab {
+				display: inline-block;
+				margin: 0;
+				padding: .5em 1.5em;
+				margin-right: .25em;
+				background: #ccc;
+				border-top: solid 3px #666;
+				border-left: solid 1px #666;
+				border-right: solid 1px #666;
+				outline: 0;
+				cursor: pointer;
+			}
+			.tab.active,
+			.tab:hover,
+			.tab:focus {
+				background: #fff;
+				border-top-color: orange;
+				border-right-color: #000;
+				border-left-color: #000;
+			}
+			
+			.content {
+				overflow: hidden;
+			}
+			.panel {
+				display: none;
+				width: 100%;
+				padding: 2em;
+				min-height: 400px;
+				background: #fff;
+				border: solid 1px #000;
+				/*margin-top: -3px;*/
+			}
+			.panel.active {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<section aria-describedby="heading" class="wrapp">
+			<h1 id="heading">ARIA TABS DEMO</h1>
+			<div class="tabs" role="tablist">
+				<span role="tab" 
+					tabindex="0" 
+					id="tab-1" 
+					class="tab active"
+					aria-controls="panel-1" 
+					aria-selected="true">HTML</span>
+				<span role="tab" 
+					tabindex="0" 
+					id="tab-2" 
+					class="tab"
+					aria-controls="panel-2" 
+					aria-selected="false">CSS</span>
+				<span role="tab" 
+					tabindex="0" 
+					id="tab-3" 
+					class="tab"
+					aria-controls="panel-3" 
+					aria-selected="false">javascript</span>
+			</div>
+			
+			<div class="panels">
+				<div role="tabpanel" 
+					id="panel-1"
+					class="panel active"
+					aria-labelledby="tab-1" 
+					aria-expanded="true" 
+					aria-hidden="false">html is a markup language...</div>
+				<div role="tabpanel" 
+					id="panel-2"
+					class="panel"
+					aria-labelledby="tab-2" 
+					aria-expanded="false" 
+					aria-hidden="true">CSS is flat</div>
+				<div role="tabpanel" 
+					id="panel-3" 
+					class="panel"
+					aria-labelledby="tab-3" 
+					aria-expanded="false" 
+					aria-hidden="true">javascript is popular</div>
+			</div>			
+
+		</div>
+		<script>
+		function setItem(e) {
+			if (e.target !== e.currentTarget) {
+				var $tab = document.querySelector("#"+e.target.id);
+				var $panel = document.querySelector("#"+$tab.getAttribute("aria-controls"));
+				var tabs = document.querySelectorAll(".tab");
+				var panels = document.querySelectorAll(".panel");
+				for(var i=0; i< tabs.length; i++) {
+					tabs[i].setAttribute("aria-selected", "false");
+					tabs[i].classList.remove("active");
+				}
+				$tab.setAttribute("aria-selected","true");
+				$tab.classList.add("active");
+				for(var i=0; i< panels.length; i++) {
+					panels[i].setAttribute("aria-expanded","false");
+					panels[i].setAttribute("aria-hidden","true");
+					panels[i].classList.remove("active");
+				}
+				$panel.setAttribute("aria-expanded","true");
+				$panel.setAttribute("aria-hidden","false");
+				$panel.classList.add("active");				
+			}
+			e.stopPropagation();
+		}
+
+		window.onload = function(e) {
+			document.querySelector(".tabs").addEventListener("click", function(e) {
+				setItem(e);
+			}, true);
+			document.querySelector(".tabs").addEventListener("keyup", function(e) {
+				if(e.which === 13 || e.which === 32) {
+					setItem(e);
+				}
+			}, true);
+		}
+		</script>
+	</body>
+</html>
+

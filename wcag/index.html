@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accessible forms. Lab 1</title>
+    <meta charset="UTF-8">
+	<style>
+		html {
+			font-size: 62.5%;
+		}
+
+		body {
+			font-size: 2.8rem;
+		}
+
+		.wrapp {
+			width: 50%;
+			background-color: #eee;
+			margin: 2em auto;
+			padding: 2em;
+		}
+
+		input[type="checkbox"],
+		input[type="text"],
+		input[type="submit"] {
+			background: #ccc;
+			font-size: 1em;
+			color: #000;
+			border: none;
+			outline: none;
+		}
+
+		form > div {
+			padding: 0.5em 1em;	
+		}
+		
+		.fav-colors input{
+			
+		}
+
+		button[type="submit"] {
+			width: 200px;
+			height: 40px;
+			font: 700 2rem arial;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<section class="wrapp" aria-labelledby="contact-form-heading" role="main">
+		<div>
+			<h1 id="contact-form-heading">CONTACT FORM</h1>
+		</div>
+		<form id="example_form" method="post" action="" role="form">
+			<!-- <form novalidate="novalidate"></form> -->
+			<div>
+				<label for="firstName">First Name:</label>
+				<input type="text" name="firstName" id="firstName" required="required" oninvalid="this.setCustomValidity('Please insert your name')">
+			</div>
+			<div>
+				<label for="lastName">Last Name:</label>
+				<input type="text" name="lastName" id="lastName" required="required" oninvalid="this.setCustomValidity('Please insert your last name')">
+			</div>
+			<div>
+				<label for="tel">Telephone:</label>
+				<input type="tel" name="tel" id="tel">
+			</div>
+			<div>
+				<label for="dob">Date of birth (Day/Month/Year):</label>
+				<input type="date" name="dob" id="dob">
+			</div>
+			<div>
+				<fieldset class="fav-colors" aria-labelledby="colors-form-header" role="form">
+					<legend id="colors-form-header">Favorite colors:</legend>
+					<div>
+						<input type="checkbox" name="color" id="color-1"> 
+						<label for="color-1">RED</label>
+					</div>	
+					<div>
+						<input type="checkbox" name="color" id="color-2"> 
+						<label for="color-2">GREEN</label>
+					</div>
+					<div>
+						<input type="checkbox" name="color" id="color-3"> 
+						<label for="color-3">PURPLE</label>
+					</div>
+					<div>
+						<input type="checkbox" name="color" id="color-4"> 
+						<label for="color-4">BLACK</label>
+					</div>
+					<div>
+						<input type="checkbox" name="color" id="color-5"> 
+						<label for="color-5">RED</label>
+					</div>
+				</fieldset>
+			</div>
+			<div>
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+	</section>
+	<script>
+
+	</script>
+</body>
+</html>

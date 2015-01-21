@@ -29,7 +29,7 @@ console.log(Object.prototype.toString.call(a));
 var o1 = {
 	name: 'Sid',
 	speak: function(){
-    	alert(this.name);
+    	console.log(this.name);
 	}
 }
 
@@ -67,3 +67,24 @@ function A(name){
 
 var a = new A(0 || this.name);
 a.speak();
+
+// ===================================================
+//	7. What will be the output of each statement of Foo() ?
+// ===================================================
+
+function Boo () {
+	this.bar();
+	console.log('this.bar: ');
+	console.log(this.bar);
+	var barf = this.bar;
+	barf();
+	$("a").click(barf);
+}
+
+Boo.prototype.bar = function () {
+	alert(this);
+}
+
+var f = new Boo();
+console.log(f);
+// Output will be "Boo" object that contains "bar" function

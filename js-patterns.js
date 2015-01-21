@@ -22,6 +22,47 @@ Lego.prototype = Object.create(Constr.prototype);
 var kubiki = new Constr('Kubiki', '12');
 var mechanic = new Lego('Mechanic', 'Green');
 
+
+// ===================================================
+//	Another Practice in Inheritance Pattern
+// ===================================================
+
+function WebDesigner(name, lang) {
+	this.name = name;
+	this.lang = lang;
+};
+
+WebDesigner.prototype.code = function() {
+	console.log("My name is " + this.name + ", and I'm coding in " + this.lang + ".");
+};
+
+var michael = new WebDesigner('Michael', 'JavaScript, AngularJS and Node.js');
+
+function Programmer(exp, spec) {
+	this.exp = exp;
+	this.spec = spec;
+
+	// WebDesigner.call(this, "Dmitry", "C, C++, TCP/IP");
+};
+
+Programmer.prototype = Object.create(WebDesigner.prototype);
+
+Programmer.prototype.supercode = function() {
+	console.log("I have " + this.exp + " of experience. I know Visual Studio and " + this.spec + ".");
+};
+
+var dmitry = new Programmer('10 years', 'debugging');
+
+function WebArchitect(name, lang, exp, spec) {
+	WebDesigner.call(this, name, lang);
+	Programmer.call(this, exp, spec)
+};
+
+WebArchitect.prototype = Object.create(Programmer.prototype);
+
+var serge = new WebArchitect('Serg', 'Angular, Backbone, NodeJS', '7 years', 'team leading');
+
+
 // ===================================================
 //	Mixins Pattern
 // ===================================================
