@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SVG</title>
+	<link rel="stylesheet" href="svg.css">
+</head>
+<body>
+	<svg width="800" height="400" viewbox="0 0 800 400">
+			<!-- <polygon> -->
+		<defs>
+			<g id="shape">
+				<rect x="50" y="50" width="50" height="50" />
+				<circle cx="50" cy="50" r="50" />
+			</g>
+			<g id="shape2">
+				<circle cx="50" cy="80" r="50" />
+				<rect x="-50" y="60" width="70" height="20" />
+				<triangle
+			</g>
+		</defs>
+
+		<use xlink:href="#shape" x="200" y="200" width="400" />
+	</svg>
+
+	<div class="content">
+		<svg width="100" height="100" viewbox="0 0 200 200">
+			<use xlink:href="#shape" x="100" y="100" />
+		</svg>
+		<span class="header">Hello!</span>
+		<svg with="200" height="200">
+			<use xlink:href="#shape2" x="100" y="100" />
+		</svg>
+	</div>
+
+	<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+	 <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+		<g>
+		<title>background</title>
+		<rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+			<g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+				<rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+			</g>
+		</g>
+		<g>
+			<title>Layer 1</title>
+			<path stroke="#000" d="m11.04638,101.15645l97.66015,-94.02385l35.24709,130.71094l-97.66016,94.02386l-35.24708,-130.71095z" id="svg_3" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="1.5" fill="#849854"/>
+		</g>
+	</svg>
+</body>
+</html>
